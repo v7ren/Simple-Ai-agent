@@ -60,7 +60,52 @@ agent/
 
 ## Configuration
 
-See `example.env` for all available options including:
+See below for all available options including:
+this is an example of the .env
+```
+# Example environment configuration for AI Agent
+# Copy this to .env and fill in your values
+
+# Required: OpenRouter configuration
+OPENROUTER_API_KEY=your_api_key_here
+OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
+
+# Optional: Model selection
+OPENROUTER_DEFAULT_MODEL=openai/gpt-4o-mini
+OPENROUTER_VERIFICATION_MODEL=anthropic/claude-3.5-sonnet
+
+# Required: Agent configuration
+AGENT_NAME=MyAgent
+AGENT_DESCRIPTION=An AI agent that helps users achieve goals
+
+# Optional: Budget limits (search + answer needs ~20k+ tokens; raise if you hit "Budget exhausted")
+MAX_TOOL_CALLS=15
+MAX_TIME_SECONDS=180
+MAX_TOKENS_PER_REQUEST=64000
+MAX_COST_PER_REQUEST=5.0
+
+# Optional: Rate limiting
+RATE_LIMIT_REQUESTS_PER_MINUTE=60
+
+# Optional: Memory configuration
+LTM_ENABLED=false
+RETRIEVAL_ENABLED=false
+RETRIEVAL_TOP_K=5
+STM_MAX_TURNS=20
+
+# Optional: Security
+API_KEY=optional_api_key_for_auth
+JWT_SECRET=optional_jwt_secret
+MAX_INPUT_LENGTH=10000
+
+# Optional: Run Python in a separate shell window (default true). When true, run_python opens a new CMD window so you see output there.
+# RUN_PYTHON_IN_SEPARATE_SHELL=true
+
+# Optional: Feature flags
+# All tools: use * or leave empty. Or list: ALLOWED_TOOLS=echo,search,run_python
+ALLOWED_TOOLS=*
+
+```
 - OpenRouter API settings
 - Model selection (draft/verification)
 - Budget limits (tokens, time, cost)
